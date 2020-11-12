@@ -48,7 +48,7 @@ public class JsonHttpTest extends HttpTest {
         if (value != null) {
             String trimmed = value.trim();
             if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
-                formatted = getEnvironment().getHtmlForJson(trimmed);
+                formatted = getEnvironment().getHtmlForJson(trimmed)+ "";
             }
         }
         return formatted;

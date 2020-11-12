@@ -47,7 +47,8 @@ public class NamespaceContextImplTest {
         impl.add(prefix3, uri3);
 
         assertEquals(uri3, impl.getNamespaceURI(prefix3));
-        assertEquals(prefix, impl.getPrefix(uri));
+        assertTrue(prefix.equals(impl.getPrefix(uri)) || prefix2.equals(impl.getPrefix(uri)) || prefix3.equals(impl.getPrefix(uri)));
+//        assertEquals(prefix, impl.getPrefix(uri));
 
         int i = 0;
         Iterator<String> iter = impl.getPrefixes(uri);
