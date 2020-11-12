@@ -5,7 +5,6 @@ import org.apache.http.HttpStatus;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.util.HashMap;
 import java.util.List;
@@ -165,22 +164,8 @@ public class XmlHttpResponseTest {
                             + " <li>result: 1 <> 13.44</li>\n"
                             + "</ul>";
         XPathCheckResult checkResult = resp.checkXPaths(values, expressionsToCheck);
-
         assertEquals("NOK", checkResult.getResult());
-//        JSONAssert.assertEquals(expected, checkResult.getMismatchDetail(), false);
-        System.out.println("12456 " + expected);
-        System.out.println("12345 " +checkResult.getMismatchDetail());
-
-        assertEquals(true, htmlChecker(expected,checkResult.getMismatchDetail()));
-    }
-
-    private boolean htmlChecker(String expected, String mismatchDetail){
-
-        for (int i = 0 ; i < expected.length() ; i++){
-
-        }
-
-        return true;
+        assertEquals(expected, checkResult.getMismatchDetail());
     }
 
     private Map<String, String> createExprToCheck() {
