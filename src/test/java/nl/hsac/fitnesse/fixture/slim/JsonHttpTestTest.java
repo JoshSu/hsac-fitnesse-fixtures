@@ -3,6 +3,7 @@ package nl.hsac.fitnesse.fixture.slim;
 import nl.hsac.fitnesse.fixture.util.XmlHttpResponse;
 import org.apache.http.entity.ContentType;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 
 import static junit.framework.TestCase.assertTrue;
 import static nl.hsac.fitnesse.fixture.slim.HttpTestTest.checkCall;
@@ -103,7 +104,7 @@ public class JsonHttpTestTest {
         XmlHttpResponse req1 = checkCall(url -> jsonHttpTestTest.postValuesAsJsonTo(url));
         assertEquals("POST", jsonHttpTestTest.getResponse().getMethod());
         assertEquals("POST", req1.getMethod());
-        assertEquals("{\"A\":\"1\",\"B\":\"2\"}", req1.getRequest());
+        JSONAssert.assertEquals("{\"A\":\"1\",\"B\":\"2\"}", req1.getRequest(), false);
     }
 
     @Test
@@ -114,7 +115,7 @@ public class JsonHttpTestTest {
         XmlHttpResponse req1 = checkCall(url -> jsonHttpTestTest.putValuesAsJsonTo(url));
         assertEquals("PUT", jsonHttpTestTest.getResponse().getMethod());
         assertEquals("PUT", req1.getMethod());
-        assertEquals("{\"G\":\"g\",\"S\":\"s\"}", req1.getRequest());
+        JSONAssert.assertEquals("{\"G\":\"g\",\"S\":\"s\"}", req1.getRequest(), false);
     }
 
     @Test
@@ -125,6 +126,6 @@ public class JsonHttpTestTest {
         XmlHttpResponse req1 = checkCall(url -> jsonHttpTestTest.deleteWithValuesAsJson(url));
         assertEquals("DELETE", jsonHttpTestTest.getResponse().getMethod());
         assertEquals("DELETE", req1.getMethod());
-        assertEquals("{\"d\":\"4\",\"C\":\"3\"}", req1.getRequest());
+        JSONAssert.assertEquals("{\"d\":\"4\",\"C\":\"3\"}", req1.getRequest(), false);
     }
 }
