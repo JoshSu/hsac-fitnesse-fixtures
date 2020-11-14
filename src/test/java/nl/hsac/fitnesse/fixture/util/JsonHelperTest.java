@@ -25,7 +25,7 @@ public class JsonHelperTest {
                         "    \"price\": 8.95,\n" +
                         "    \"category\": \"reference\"\n" +
                         "}",
-                helper.format("{\"category\": \"reference\",\"price\": 8.95}"),false);
+                helper.format("{\"category\": \"reference\",\"price\": 8.95}"), false);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class JsonHelperTest {
                         "        }\n" +
                         "    ]\n" +
                         "}",
-                helper.format(h),false);
+                helper.format(h), false);
     }
 
     @Test
@@ -103,7 +103,7 @@ public class JsonHelperTest {
                         "        }\n" +
                         "    ]\n" +
                         "}",
-                helper.format(h),false);
+                helper.format(h), false);
     }
 
     @Test
